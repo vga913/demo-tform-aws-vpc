@@ -1,15 +1,15 @@
 module "networking" {
-  source    = "./modules/networking"
+  source    = "terraform-aws-modules/modules/networking"
   namespace = var.namespace
 }
 
 module "ssh-key" {
-  source    = "./modules/ssh-key"
+  source    = "terraform-aws-modules/modules/ssh-key"
   namespace = var.namespace
 }
 
 module "ec2" {
-  source     = "./modules/ec2"
+  source     = "terraform-aws-modules/modules/ec2"
   namespace  = var.namespace
   vpc        = module.networking.vpc
   sg_pub_id  = module.networking.sg_pub_id
